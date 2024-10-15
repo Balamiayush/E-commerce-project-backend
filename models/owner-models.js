@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 
-
-
 const ownerSchema = new mongoose.Schema({
   fullname: {
     type: String,
@@ -26,4 +24,4 @@ const ownerSchema = new mongoose.Schema({
   products: [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }],
 });
 
-module.exports = mongoose.module('owner',ownerSchema)
+module.exports = mongoose.model('owner', ownerSchema)

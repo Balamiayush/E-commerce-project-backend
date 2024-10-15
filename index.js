@@ -18,18 +18,19 @@ const ownersRoute = require("./routes/ownersRoute");
 const usersRoute = require("./routes/usersRoute");
 const productsRoute = require("./routes/productsRoute");
 
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use("/owners", ownersRoute);
 app.use("/users", usersRoute);
 app.use("/products", productsRoute);
 
 // Start server and log when it's ready
-const server = app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+app.get('/',(req,res)=>{
+  res.send('hello world')
+  console.log('Server started...')
+})
 
 // If you want to add additional event listeners, use the server object
-server.on("listening", () => {
-  console.log("The server is ready and listening for requests.");
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
